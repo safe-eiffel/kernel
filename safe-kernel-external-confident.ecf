@@ -16,16 +16,7 @@
 				<exclude>/spec$</exclude>
 				<exclude>/.svn$</exclude>
 			</file_rule>
-			<cluster name="spec_ise" location="./external/src/spec/ise/">
-				<condition>
-					<custom name="gobo_eiffel" value="ise"/>
-				</condition>
-			</cluster>
-			<cluster name="spec_ge" location="./external/src/spec/ge/">
-				<condition>
-					<custom name="gobo_eiffel" value="ge"/>
-				</condition>
-			</cluster>
+                        <cluster name="spec_eiffel" location="./external/src/spec/$GOBO_EIFFEL/"/>
 		</cluster>
 	</target>
 </system>

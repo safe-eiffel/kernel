@@ -3,3 +3,5 @@ EIFGEN*
 *.orig
 *.swp
 
+*.lib
+*.obj

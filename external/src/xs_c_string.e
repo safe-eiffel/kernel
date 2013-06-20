@@ -230,9 +230,16 @@ feature -- Status report
 feature -- Element change
 
 	wipe_out
+		local
+			i : INTEGER
 		do
-			put ('%U', 1)
-			internal_count := 0
+			from i := 1
+			until i> capacity
+			loop
+				put ('%U', i)
+				i := i + 1
+			end
+			internal_count := -1
 		ensure
 			is_empty: is_empty
 		end

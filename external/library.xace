@@ -26,12 +26,13 @@
 			<cluster name="${GOBO_EIFFEL}" prefix="compiler_"/>
 		</cluster>
 
-		<option unless="${GOBO_OS}=windows">
+<!--		<option unless="${GOBO_OS}=windows">
 			<option name="link" value="${SAFE_KERNEL}/external/src/spec/${GOBO_EIFFEL}/${GOBO_OS}/libxs_c.a"/>
 		</option>
 		<option if="${GOBO_OS}=windows">
 			<option name="link" value="${SAFE_KERNEL}\external\src\spec\${GOBO_EIFFEL}\${GOBO_OS}\xs_c_${GOBO_CC}.lib"/>
 			<option name="linker" value="microsoft" if="${GOBO_EIFFEL}=ve"/>
 		</option>
-	</cluster>
+-->
+</cluster>
 </library>

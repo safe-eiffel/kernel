@@ -20,92 +20,92 @@ feature -- Basic operations
 
 	c_add (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' + `e2'
-		external "C"
-		alias "c_u_add32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 + (unsigned long)$e2)"
 		end
 
 	c_subtract (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' - `e2'
-		external "C"
-		alias "c_u_subtract32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 - (unsigned long)$e2)"
 		end
 
 	c_divide (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' / `e2'
-		external "C"
-		alias "c_u_divide32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 / (unsigned long)$e2)"
 		end
 
 	c_multiply (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' * `e2'
-		external "C"
-		alias "c_u_multiply32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 * (unsigned long)$e2)"
 		end
 
 	c_remainder (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' \\ `e2'
-		external "C"
-		alias "c_u_remainder32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 %% (unsigned long)$e2)"
 		end
 
 	c_left_shift (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' << `e2'
-		external "C"
-		alias "c_u_left_shift32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 << (unsigned long)$e2)"
 		end
 
 	c_right_shift (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' >> `e2'
-		external "C"
-		alias "c_u_right_shift32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 >> (unsigned long)$e2)"
 		end
 
 	c_u_and (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' & `e2'
-		external "C"
-		alias "c_u_and32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 & (unsigned long)$e2)"
 		end
 
 	c_u_or (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' | `e2'
-		external "C"
-		alias "c_u_or32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 | (unsigned long)$e2)"
 		end
 
 	c_u_xor (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' ^ `e2'
-		external "C"
-		alias "c_u_xor32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 ^ (unsigned long)$e2)"
 		end
 
 	c_u_not  (e1 : INTEGER)  : INTEGER
 			-- Unsigned ~`e1'
-		external "C"
-		alias "c_u_not32"
+		external "C inline"
+		alias "(EIF_INTEGER) (~((unsigned long)$e1))"
 		end
 
 	c_lt (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' < `e2'
-		external "C"
-		alias "c_u_lt32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 < (unsigned long)$e2)"
 		end
 
 	c_eq (e1 : INTEGER; e2 : INTEGER)  : INTEGER
 			-- Unsigned `e1' = `e2'
-		external "C"
-		alias "c_u_eq32"
+		external "C inline"
+		alias "(EIF_INTEGER) ((unsigned long)$e1 == (unsigned long)$e2)"
 		end
 
 	c_set_bit (el,  n : INTEGER) : INTEGER
 			-- set n-th bit of e1
-		external "C"
-		alias "c_u_setbit32"
+		external "C inline"
+		alias "(EIF_INTEGER) (((unsigned long) $el) | (1 << ($n-1)))"
 		end
 
 	c_get_bit (el,  n : INTEGER) : INTEGER
 			-- get n-th bit of e1
-		external "C"
-		alias "c_u_getbit32"
+		external "C inline"
+		alias "(EIF_INTEGER) (((unsigned long) $el & (1 << ($n-1)))>0?1:0)"
 		end
 
 feature -- Conversion
@@ -114,8 +114,8 @@ feature -- Conversion
 			-- `n' as a signed 8
 		require
 			n_unsigned8: n >= 0 and n <= 255
-		external "C"
-		alias "c_u_as_signed8"
+		external "C inline"
+		alias "(EIF_INTEGER) ((char) $n)"
 		ensure
 			result_signed8: Result >= - 128 and Result <= 127
 		end
@@ -124,8 +124,8 @@ feature -- Conversion
 			-- `n' as a signed 16
 		require
 			n_unsigned_16: n >= 0 and n <= 65535
-		external "C"
-		alias "c_u_as_signed16"
+		external "C inline"
+		alias "(EIF_INTEGER) ((short) $n)"
 		ensure
 			result_signed16: Result >= -32768 and Result <= 32767
 		end

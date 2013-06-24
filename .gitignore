@@ -1,4 +1,6 @@
-EIFGENs
+EIFGEN*
+*.bak
+*.orig
+*.swp
 *.lib
 *.obj
-
